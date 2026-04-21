@@ -138,6 +138,7 @@ function MinimalTemplate({ title, subtitle, colors, isPro }) {
                 height: 4,
                 background: accent,
                 marginBottom: 36,
+                display: "flex",
             },
         }),
         el(
