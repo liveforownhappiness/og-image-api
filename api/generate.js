@@ -474,17 +474,20 @@ export default async function handler(req) {
     }
 
     const {
-        title = "Untitled",
+        title,
         subtitle = "",
         template = "gradient",
         colors = {},
         licenseKey = "",
     } = body
 
-    if (!title.trim()) {
+    if (!title || typeof title !== "string" || !title.trim()) {
         return new Response(JSON.stringify({ error: "Title is required" }), {
             status: 400,
-            headers: { "Content-Type": "application/json" },
+            headers: {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "*",
+            },
         })
     }
 
