@@ -1,0 +1,10 @@
+{
+  "name": "og-image-api",
+  "private": true,
+  "dependencies": {
+    "@vercel/og": "^0.6.3"
+  },
+  "devDependencies": {
+    "@vercel/node": "^5.7.11"
+  }
+}
