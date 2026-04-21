@@ -59,6 +59,7 @@ function GradientTemplate({ title, subtitle, colors, isPro }) {
                 borderRadius: "50%",
                 background: accent,
                 marginBottom: 40,
+                display: "flex",
             },
         }),
         // Title
@@ -217,6 +218,7 @@ function BoldTemplate({ title, subtitle, colors, isPro }) {
                 borderRadius: "50%",
                 background: accent,
                 opacity: 0.9,
+                display: "flex",
             },
         }),
         el(
