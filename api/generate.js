@@ -306,6 +306,7 @@ function SplitTemplate({ title, subtitle, colors }) {
                     height: 4,
                     background: accent,
                     marginBottom: 28,
+                    display: "flex",
                 },
             }),
             el(
@@ -345,6 +346,7 @@ function SplitTemplate({ title, subtitle, colors }) {
                 width: "42%",
                 height: "100%",
                 background: `linear-gradient(135deg, ${accent} 0%, ${bg2} 100%)`,
+                display: "flex",
             },
         })
     )
@@ -410,6 +412,7 @@ function MeshTemplate({ title, subtitle, colors }) {
                 height: 4,
                 background: accent,
                 marginTop: 28,
+                display: "flex",
             },
         })
     )
