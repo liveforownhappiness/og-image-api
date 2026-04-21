@@ -1,6 +1,7 @@
 {
   "name": "og-image-api",
   "private": true,
+  "type": "module",
   "dependencies": {
     "@vercel/og": "^0.6.3"
   },
