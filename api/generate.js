@@ -29,7 +29,10 @@ async function validateLicense(key) {
 /* ---------- Templates (React elements via createElement) ---------- */
 
 function el(type, props = {}, ...children) {
-    return { type, props: { ...props, children: children.flat() }, key: null }
+    const flat = children
+        .flat()
+        .filter((c) => c !== null && c !== undefined && c !== false && c !== "")
+    return { type, props: { ...props, children: flat }, key: null }
 }
 
 function GradientTemplate({ title, subtitle, colors, isPro }) {
