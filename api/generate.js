@@ -429,14 +429,10 @@ function PhotoTemplate({ title, subtitle, colors }) {
                 height: "100%",
                 display: "flex",
                 flexDirection: "column",
+                justifyContent: "space-between",
+                padding: 80,
                 fontFamily: "sans-serif",
-                position: "relative",
-                background: `
-          radial-gradient(at 25% 20%, ${bg2} 0%, transparent 55%),
-          radial-gradient(at 80% 30%, ${accent} 0%, transparent 45%),
-          radial-gradient(at 50% 100%, #000 0%, transparent 60%),
-          ${bg1}
-        `,
+                background: `linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.6) 100%), radial-gradient(at 25% 20%, ${bg2} 0%, transparent 55%), radial-gradient(at 80% 30%, ${accent} 0%, transparent 45%), ${bg1}`,
                 color: text,
             },
         },
@@ -445,9 +441,6 @@ function PhotoTemplate({ title, subtitle, colors }) {
             "div",
             {
                 style: {
-                    position: "absolute",
-                    top: 56,
-                    left: 80,
                     display: "flex",
                     alignItems: "center",
                     gap: 14,
@@ -468,28 +461,13 @@ function PhotoTemplate({ title, subtitle, colors }) {
             }),
             el("div", { style: { display: "flex" } }, "Featured")
         ),
-        // Bottom dark overlay (vignette for legibility)
-        el("div", {
-            style: {
-                position: "absolute",
-                left: 0,
-                right: 0,
-                bottom: 0,
-                height: "60%",
-                background: "linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.65) 100%)",
-                display: "flex",
-            },
-        }),
-        // Bottom-left text
+        // Bottom-left text block
         el(
             "div",
             {
                 style: {
-                    marginTop: "auto",
-                    padding: "0 80px 80px",
                     display: "flex",
                     flexDirection: "column",
-                    position: "relative",
                 },
             },
             el("div", {
@@ -505,11 +483,11 @@ function PhotoTemplate({ title, subtitle, colors }) {
                 "div",
                 {
                     style: {
-                        fontSize: 80,
+                        fontSize: 78,
                         fontWeight: 900,
-                        lineHeight: 1.02,
-                        letterSpacing: "-0.035em",
-                        marginBottom: 22,
+                        lineHeight: 1.05,
+                        letterSpacing: "-0.03em",
+                        marginBottom: 20,
                         textShadow: "0 4px 24px rgba(0,0,0,0.45)",
                         display: "flex",
                         flexWrap: "wrap",
@@ -526,7 +504,6 @@ function PhotoTemplate({ title, subtitle, colors }) {
                               fontWeight: 500,
                               opacity: 0.92,
                               lineHeight: 1.4,
-                              maxWidth: 900,
                               display: "flex",
                               flexWrap: "wrap",
                           },
