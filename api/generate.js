@@ -419,6 +419,415 @@ function MeshTemplate({ title, subtitle, colors }) {
     )
 }
 
+function PhotoTemplate({ title, subtitle, colors }) {
+    const { bg1, bg2, text, accent } = colors
+    return el(
+        "div",
+        {
+            style: {
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+                fontFamily: "sans-serif",
+                position: "relative",
+                background: `
+          radial-gradient(at 25% 20%, ${bg2} 0%, transparent 55%),
+          radial-gradient(at 80% 30%, ${accent} 0%, transparent 45%),
+          radial-gradient(at 50% 100%, #000 0%, transparent 60%),
+          ${bg1}
+        `,
+                color: text,
+            },
+        },
+        // Top metadata strip
+        el(
+            "div",
+            {
+                style: {
+                    position: "absolute",
+                    top: 56,
+                    left: 80,
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 14,
+                    fontSize: 18,
+                    fontWeight: 700,
+                    letterSpacing: "0.18em",
+                    textTransform: "uppercase",
+                    opacity: 0.85,
+                },
+            },
+            el("div", {
+                style: {
+                    width: 32,
+                    height: 3,
+                    background: accent,
+                    display: "flex",
+                },
+            }),
+            el("div", { style: { display: "flex" } }, "Featured")
+        ),
+        // Bottom dark overlay (vignette for legibility)
+        el("div", {
+            style: {
+                position: "absolute",
+                left: 0,
+                right: 0,
+                bottom: 0,
+                height: "60%",
+                background: "linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.65) 100%)",
+                display: "flex",
+            },
+        }),
+        // Bottom-left text
+        el(
+            "div",
+            {
+                style: {
+                    marginTop: "auto",
+                    padding: "0 80px 80px",
+                    display: "flex",
+                    flexDirection: "column",
+                    position: "relative",
+                },
+            },
+            el("div", {
+                style: {
+                    width: 56,
+                    height: 4,
+                    background: accent,
+                    marginBottom: 24,
+                    display: "flex",
+                },
+            }),
+            el(
+                "div",
+                {
+                    style: {
+                        fontSize: 80,
+                        fontWeight: 900,
+                        lineHeight: 1.02,
+                        letterSpacing: "-0.035em",
+                        marginBottom: 22,
+                        textShadow: "0 4px 24px rgba(0,0,0,0.45)",
+                        display: "flex",
+                        flexWrap: "wrap",
+                    },
+                },
+                title
+            ),
+            subtitle
+                ? el(
+                      "div",
+                      {
+                          style: {
+                              fontSize: 28,
+                              fontWeight: 500,
+                              opacity: 0.92,
+                              lineHeight: 1.4,
+                              maxWidth: 900,
+                              display: "flex",
+                              flexWrap: "wrap",
+                          },
+                      },
+                      subtitle
+                  )
+                : null
+        )
+    )
+}
+
+function GlassTemplate({ title, subtitle, colors }) {
+    const { bg1, bg2, text, accent } = colors
+    return el(
+        "div",
+        {
+            style: {
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: 80,
+                fontFamily: "sans-serif",
+                position: "relative",
+                background: `
+          radial-gradient(circle at 20% 30%, ${bg2} 0%, transparent 55%),
+          radial-gradient(circle at 80% 70%, ${accent} 0%, transparent 50%),
+          linear-gradient(135deg, ${bg1} 0%, ${bg2} 100%)
+        `,
+            },
+        },
+        // Decorative orb behind card
+        el("div", {
+            style: {
+                position: "absolute",
+                top: 60,
+                right: 80,
+                width: 220,
+                height: 220,
+                borderRadius: "50%",
+                background: accent,
+                opacity: 0.45,
+                display: "flex",
+            },
+        }),
+        el("div", {
+            style: {
+                position: "absolute",
+                bottom: 80,
+                left: 100,
+                width: 160,
+                height: 160,
+                borderRadius: "50%",
+                background: bg2,
+                opacity: 0.55,
+                display: "flex",
+            },
+        }),
+        // Frosted glass card
+        el(
+            "div",
+            {
+                style: {
+                    width: "78%",
+                    padding: "64px 72px",
+                    borderRadius: 28,
+                    background: "rgba(255, 255, 255, 0.18)",
+                    border: "2px solid rgba(255, 255, 255, 0.45)",
+                    boxShadow:
+                        "0 30px 80px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255,255,255,0.6)",
+                    display: "flex",
+                    flexDirection: "column",
+                    color: text,
+                    position: "relative",
+                },
+            },
+            el(
+                "div",
+                {
+                    style: {
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 12,
+                        marginBottom: 28,
+                        fontSize: 18,
+                        fontWeight: 700,
+                        letterSpacing: "0.2em",
+                        textTransform: "uppercase",
+                        opacity: 0.9,
+                    },
+                },
+                el("div", {
+                    style: {
+                        width: 8,
+                        height: 8,
+                        borderRadius: "50%",
+                        background: accent,
+                        display: "flex",
+                    },
+                }),
+                el("div", { style: { display: "flex" } }, "New")
+            ),
+            el(
+                "div",
+                {
+                    style: {
+                        fontSize: 72,
+                        fontWeight: 800,
+                        lineHeight: 1.06,
+                        letterSpacing: "-0.03em",
+                        marginBottom: 22,
+                        display: "flex",
+                        flexWrap: "wrap",
+                    },
+                },
+                title
+            ),
+            subtitle
+                ? el(
+                      "div",
+                      {
+                          style: {
+                              fontSize: 28,
+                              fontWeight: 500,
+                              opacity: 0.85,
+                              lineHeight: 1.4,
+                              display: "flex",
+                              flexWrap: "wrap",
+                          },
+                      },
+                      subtitle
+                  )
+                : null
+        )
+    )
+}
+
+function RetroTemplate({ title, subtitle, colors }) {
+    const { text, accent } = colors
+    // Retro sunset palette (fixed for vibe consistency, accent overrides title underline)
+    return el(
+        "div",
+        {
+            style: {
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+                fontFamily: "sans-serif",
+                position: "relative",
+                background:
+                    "linear-gradient(180deg, #1a0b3d 0%, #4c1d95 22%, #db2777 50%, #f97316 72%, #1a0b3d 100%)",
+                color: text,
+                overflow: "hidden",
+            },
+        },
+        // Sun (large half-disc)
+        el("div", {
+            style: {
+                position: "absolute",
+                top: 110,
+                left: "50%",
+                transform: "translateX(-50%)",
+                width: 360,
+                height: 360,
+                borderRadius: "50%",
+                background:
+                    "linear-gradient(180deg, #fde047 0%, #f97316 50%, #db2777 100%)",
+                boxShadow: "0 0 80px rgba(253, 224, 71, 0.6)",
+                display: "flex",
+            },
+        }),
+        // Horizon stripes (decorative bars across the sun)
+        el(
+            "div",
+            {
+                style: {
+                    position: "absolute",
+                    top: 320,
+                    left: 0,
+                    right: 0,
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 8,
+                    alignItems: "center",
+                },
+            },
+            ...[0.95, 0.7, 0.5, 0.35, 0.22].map((opacity, i) =>
+                el("div", {
+                    key: `stripe-${i}`,
+                    style: {
+                        width: `${360 - i * 6}px`,
+                        height: 6,
+                        background: "#1a0b3d",
+                        opacity,
+                        display: "flex",
+                    },
+                })
+            )
+        ),
+        // Bottom grid pattern (perspective lines)
+        el("div", {
+            style: {
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                right: 0,
+                height: 120,
+                display: "flex",
+                background:
+                    "linear-gradient(180deg, transparent 0%, rgba(26,11,61,0.95) 100%)",
+            },
+        }),
+        // Color stripes at very bottom
+        el(
+            "div",
+            {
+                style: {
+                    position: "absolute",
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    height: 12,
+                    display: "flex",
+                },
+            },
+            ...["#fde047", "#f97316", "#db2777", "#8b5cf6", "#06b6d4"].map(
+                (c, i) =>
+                    el("div", {
+                        key: `bar-${i}`,
+                        style: { flex: 1, background: c, display: "flex" },
+                    })
+            )
+        ),
+        // Text content (centered, on top of sun)
+        el(
+            "div",
+            {
+                style: {
+                    marginTop: "auto",
+                    marginBottom: 80,
+                    padding: "0 80px",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    textAlign: "center",
+                    position: "relative",
+                    zIndex: 2,
+                },
+            },
+            el("div", {
+                style: {
+                    width: 64,
+                    height: 4,
+                    background: accent || "#fde047",
+                    marginBottom: 22,
+                    display: "flex",
+                },
+            }),
+            el(
+                "div",
+                {
+                    style: {
+                        fontSize: 72,
+                        fontWeight: 900,
+                        lineHeight: 1.02,
+                        letterSpacing: "0.06em",
+                        textTransform: "uppercase",
+                        marginBottom: 18,
+                        textShadow:
+                            "0 4px 30px rgba(0,0,0,0.5), 0 0 60px rgba(253,224,71,0.3)",
+                        display: "flex",
+                        flexWrap: "wrap",
+                        justifyContent: "center",
+                    },
+                },
+                title
+            ),
+            subtitle
+                ? el(
+                      "div",
+                      {
+                          style: {
+                              fontSize: 26,
+                              fontWeight: 600,
+                              letterSpacing: "0.18em",
+                              textTransform: "uppercase",
+                              opacity: 0.92,
+                              display: "flex",
+                              flexWrap: "wrap",
+                              justifyContent: "center",
+                          },
+                      },
+                      subtitle
+                  )
+                : null
+        )
+    )
+}
+
 function renderTemplate(template, props) {
     switch (template) {
         case "gradient":
@@ -432,10 +841,11 @@ function renderTemplate(template, props) {
         case "mesh":
             return MeshTemplate(props)
         case "photo":
+            return PhotoTemplate(props)
         case "glass":
+            return GlassTemplate(props)
         case "retro":
-            // Fallback: reuse mesh for now; to be implemented as real variants
-            return MeshTemplate(props)
+            return RetroTemplate(props)
         default:
             return GradientTemplate(props)
     }
